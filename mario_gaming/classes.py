@@ -33,9 +33,7 @@ class Game:
         # elif grid_size == 5:
         #     pass #later
         # else:
-        #     pass #later
-        # for element in obstacles:
-        #     self.field = field[element.begin_position[0]][element.begin_position[1]]
+        #     pass
 
     def __repr__(self):
         return '\n'.join(self.field)
