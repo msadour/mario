@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Mario, Princess, Game
 
 
 def home(request):
@@ -7,4 +8,6 @@ def home(request):
 def move_mario(request):
     pass
 
+def solutions(request):
+    pass
 

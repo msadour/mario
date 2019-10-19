@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mario</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <script type="text/javascript" src="{% static 'js/move_mario.js' %}"></script>
-</head>
-<body>
-    {% include 'mario_gaming/menu.html' %}
+{% extends 'mario_gaming/base.html' %}
+{% load static %}
+{% block content %}
+    <table>
+        <tr>
+            <td id="text_home"><p>Welcome to Mario gaming !</p></td>
+        </tr>
+        <tr>
+            <td>
+                <img src="{% static 'img/home_image.jpg' %}"  />
 
-    <div style="margin-left:20%">
-        {% block content %}
-        {% endblock %}
-    </div>
+            </td>
+        </tr>
+    </table>
 
-</body>
-    <script type="text/javascript" src="{% static 'js/move_mario.js' %}"></script>
-</html>
+{% endblock %}
