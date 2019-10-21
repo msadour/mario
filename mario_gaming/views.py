@@ -18,8 +18,6 @@ def home(request):
     return render(request, 'mario_gaming/home.html')
 
 def game_page(request):
-    game.win = False
-    mario.position = (0,2)
     data['possibilities'] = game.get_possibilities()
     return render(request, 'mario_gaming/game.html', data)
 

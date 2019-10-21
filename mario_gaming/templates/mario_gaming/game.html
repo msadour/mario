@@ -1,7 +1,7 @@
 {% extends 'mario_gaming/base.html' %}
 {% load static %}
 {% block content %}
-
+    <br />
     <table id="table_button">
         <tr>
             {% for possibility in possibilities %}
@@ -9,7 +9,7 @@
             {% endfor %}
         </tr>
     </table>
-    <br />
+    <br /> <br />
 
     <table id="table_game" border="1" style="width:30%">
         {% for row in game.field %}

@@ -1,8 +1,10 @@
 {% extends 'mario_gaming/base.html' %}
 {% load static %}
 {% block content %}
-    <p>Good combinaisons for the level {{solution.niveau}}</p>
-    {% for combinaison in solution.combinaisons.all %}
-        <p>{{ combinaison.name }}</p>
-    {% endfor %}
+    <p>Good combinaisons for the level {{solution.niveau}} :</p>
+    <ul>
+        {% for combinaison in solution.combinaisons.all %}
+            <li>{{ combinaison.name }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
