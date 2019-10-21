@@ -15,22 +15,40 @@ data = {'mario': mario, 'princess': princess, 'game': game}
 
 
 def home(request):
+    """
+    Go to the home page.
+    :param request:
+    :return:
+    """
     return render(request, 'mario_gaming/home.html')
 
 def game_page(request):
+    """
+    Go to the game page.
+    :param request:
+    :return:
+    """
     data['possibilities'] = game.get_possibilities()
     return render(request, 'mario_gaming/game.html', data)
 
 def move_mario(request):
+    """
+    This function move Mario arround the field by giving a direction.
+    :param request:
+    :return:
+    """
     direction = request.GET.get('direction', None)
-    if direction in game.get_possibilities():
-        game.move_mario(mario, direction)
-        win = game.win
-        game_updated = render_to_string('mario_gaming/table_game.html', {'game': game})
-        new_possibilities = render_to_string('mario_gaming/table_buttons.html', {'possibilities': game.get_possibilities()})
-        return HttpResponse(json.dumps({'game_updated': game_updated, 'new_possibilities': new_possibilities, 'win': win}))
+    game.move_mario(mario, direction)
+    game_updated = render_to_string('mario_gaming/table_game.html', {'game': game})
+    new_possibilities = render_to_string('mario_gaming/table_buttons.html', {'possibilities': game.get_possibilities()})
+    return HttpResponse(json.dumps({'game_updated': game_updated, 'new_possibilities': new_possibilities, 'win': game.win}))
 
 def solutions(request):
+    """
+    Go to the page with the solution (Task 2).
+    :param request:
+    :return:
+    """
     if len(Solution.objects.all()) == 0:
         solution = Solution(niveau=3)
         solution.save()
