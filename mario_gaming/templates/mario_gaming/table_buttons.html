@@ -1,0 +1,10 @@
+{% load staticfiles %}
+<table id="table_button">
+    <tr>
+        {% for possibility in possibilities %}
+            <td ><button class="button" name="{{possibility}}">{{possibility}}</button></td>
+        {% endfor %}
+    </tr>
+</table>
+
+<script type="text/javascript" src="{% static 'js/move_mario.js' %}"></script>

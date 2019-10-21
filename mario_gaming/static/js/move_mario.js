@@ -8,7 +8,13 @@ $('.button').click(function(){
           },
 
         success : function(response){
-            $('#table_game').html(response['game_updated']);
+            if (response['win'] == false){
+                $('#table_game').html(response['game_updated']);
+                $('#table_button').html(response['new_possibilities']);
+            } else {
+                $('#table_game').html("<p>You win ! </p>");
+                $('#table_button').html("");
+            }
             return false;
         },
         error: function(error) {

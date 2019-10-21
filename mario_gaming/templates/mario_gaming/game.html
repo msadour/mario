@@ -1,0 +1,24 @@
+{% extends 'mario_gaming/base.html' %}
+{% load static %}
+{% block content %}
+
+    <table id="table_button">
+        <tr>
+            {% for possibility in possibilities %}
+                <td ><button class="button" name="{{possibility}}">{{possibility}}</button></td>
+            {% endfor %}
+        </tr>
+    </table>
+    <br />
+
+    <table id="table_game" border="1" style="width:30%">
+        {% for row in game.field %}
+            <tr>
+                <td ><p>{{ row.0 }}</p></td>
+                <td ><p>{{ row.1 }}</p></td>
+                <td ><p>{{ row.2 }}</p></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

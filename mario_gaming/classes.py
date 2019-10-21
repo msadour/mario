@@ -22,6 +22,10 @@ class Mario(Character):
         """
         self.position = new_position
 
+class Princess(Character):
+    def __init__(self, name):
+        super().__init__(name)
+
 class Game:
     def __init__(self, grid_size, mario, princess):
         self.mario = mario
@@ -90,6 +94,17 @@ class Game:
             if self.get_next_element((index_to_the_down, self.mario.position[1])) != 'x':
                 return True
 
+    def update_field(self, old_position , new_position):
+
+        def update_string_in_field(level, new_string, index):
+
+            list_field = list(level)
+            list_field[index] = new_string
+            return ''.join(list_field)
+
+        self.field[old_position[0]] = update_string_in_field(self.field[old_position[0]], '-', old_position[1])
+        self.field[new_position[0]] = update_string_in_field(self.field[new_position[0]], self.mario.get_name(), new_position[1])
+
     def move_mario(self, mario, direction, test=False):
         """
         Move Mario to a direction.
@@ -113,9 +128,9 @@ class Game:
             index_to_the_down = old_position[0] + 1
             new_position = (index_to_the_down, old_position[1])
 
-
         if self.get_next_element(new_position) == 'p':
             self.win = True
         else:
             if self.get_next_element(new_position) != 'x':
+                self.update_field(old_position, new_position)
                 self.mario.update_position(new_position)

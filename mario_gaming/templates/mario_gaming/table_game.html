@@ -1,0 +1,10 @@
+
+<table id="table_game" border="1" style="width:30%">
+    {% for row in game.field %}
+        <tr>
+            <td ><p>{{ row.0 }}</p></td>
+            <td ><p>{{ row.1 }}</p></td>
+            <td ><p>{{ row.2 }}</p></td>
+        </tr>
+    {% endfor %}
+</table>
