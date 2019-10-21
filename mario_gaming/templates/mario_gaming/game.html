@@ -14,9 +14,44 @@
     <table id="table_game" border="1" style="width:30%">
         {% for row in game.field %}
             <tr>
-                <td ><p>{{ row.0 }}</p></td>
-                <td ><p>{{ row.1 }}</p></td>
-                <td ><p>{{ row.2 }}</p></td>
+                {% if row.0 == '-'  %}
+                    <td >  <img src="{% static 'img/way.png' %}" class="element">  </td>
+                {% elif row.0 == 'x' %}
+                    <td >  <img src="{% static 'img/wall.jpg' %}" class="element"> </td>
+                {% elif row.0 == 'm' %}
+                    <td >  <img src="{% static 'img/mario.png' %}" class="element"> </td>
+                {% else %}
+                    <td >  <img src="{% static 'img/princess.png' %}" class="element"> </td>
+                {% endif %}
+
+
+                <td >
+                    {% if row.1 == '-'  %}
+                        <td >  <img src="{% static 'img/way.png' %}" class="element">  </td>
+                    {% elif row.1 == 'x' %}
+                        <td >  <img src="{% static 'img/wall.jpg' %}" class="element"> </td>
+                    {% elif row.1 == 'm' %}
+                        <td >  <img src="{% static 'img/mario.png' %}" class="element"> </td>
+                    {% else %}
+                        <td >  <img src="{% static 'img/princess.png' %}" class="element"> </td>
+                    {% endif %}
+
+                </td>
+
+
+
+                <td >
+                    {% if row.2 == '-'  %}
+                        <td >  <img src="{% static 'img/way.png' %}" class="element">  </td>
+                    {% elif row.2 == 'x' %}
+                        <td >  <img src="{% static 'img/wall.jpg' %}" class="element"> </td>
+                    {% elif row.2 == 'm' %}
+                        <td >  <img src="{% static 'img/mario.png' %}" class="element"> </td>
+                    {% else %}
+                        <td >  <img src="{% static 'img/princess.png' %}" class="element"> </td>
+                    {% endif %}
+
+                </td>
             </tr>
         {% endfor %}
     </table>

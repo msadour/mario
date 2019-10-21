@@ -18,6 +18,8 @@ def home(request):
     return render(request, 'mario_gaming/home.html')
 
 def game_page(request):
+    game.win = False
+    mario.position = (0,2)
     data['possibilities'] = game.get_possibilities()
     return render(request, 'mario_gaming/game.html', data)
 
@@ -50,7 +52,7 @@ def solutions(request):
                     new_combinaison = Combinaison(name=str(combinaison).replace('\'',''), solution=solution)
                     new_combinaison.save()
 
-    data['solution'] = solution = Solution.objects.filter(niveau=3).first()
+    data['solution'] = Solution.objects.filter(niveau=3).first()
     return render(request, 'mario_gaming/solution.html', data)
 
 
